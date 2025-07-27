@@ -1,0 +1,14 @@
+class RecommendationGraph:
+    def __init__(self):
+        self.adjacency_list = {}
+
+    def add_edge(self, user_id, product_id, weight=1):
+        """Creates a bidirectional edge between user and product."""
+        self.adjacency_list.setdefault(user_id, []).append((product_id, weight))
+        self.adjacency_list.setdefault(product_id, []).append((user_id, weight))
+
+    def get_recommendations(self, user_id, max_recommendations=3):
+        """Returns up to N product recommendations for a user."""
+        if user_id not in self.adjacency_list:
+            return []
+        return [product for product, _ in self.adjacency_list[user_id][:max_recommendations]]
