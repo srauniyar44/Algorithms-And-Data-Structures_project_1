@@ -1,0 +1,11 @@
+# Initialize structures
+user_manager = UserProfileManager()
+graph = RecommendationGraph()
+
+# Add sample user and interactions
+user_manager.add_user("user1", {"category": "electronics"})
+graph.add_edge("user1", "product1", weight=2)
+graph.add_edge("user1", "product2", weight=1)
+
+# Test output
+print("Recommendations for user1:", graph.get_recommendations("user1"))
