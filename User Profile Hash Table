@@ -1,0 +1,11 @@
+class UserProfileManager:
+    def __init__(self):
+        self.user_table = {}
+
+    def add_user(self, user_id, preferences):
+        """Stores a new user with preferences."""
+        self.user_table[user_id] = preferences
+
+    def get_user(self, user_id):
+        """Retrieves a user’s preferences or returns None if not found."""
+        return self.user_table.get(user_id)
